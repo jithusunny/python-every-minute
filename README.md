@@ -1,12 +1,16 @@
 # python-every-minute
-Run a python script every minute using Github Action + cron-job.org
+Run a python script every minute for free, without spinning up a server.
+- Uses Github Action & cron-job.org
 
-- Github Action Scheduler is what I tried first.
-- Doc said we can schedule it to run every 5 minutes(highest frequency).
-- But it was not happening every 5 mins. Sometimes 5 mins, sometimes 12 minutes and so on.
-- What worked was setting up a GH action that can be triggered from cron-job.org.
-- For this to work, we generate a Github token and make cron-job.org call this every 1 minute
-  
+- The python script just pings an web API (free, mock, by Beeceptor)
+
+- Tried Github Action Scheduler.
+- Did not get the max frequency of every 5 minutes as mentioned in docs.
+- Sometimes 5 mins, sometimes 12 minutes and so on.
+
+- What worked was triggering the Github action from cron-job.org every minute
+- we generate a GH token for cron-job.org to use while reaching GH
+
 ```
 curl -X POST \
   -H "Accept: application/vnd.github+json" \
