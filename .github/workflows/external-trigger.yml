@@ -1,8 +1,8 @@
-name: Run main.py every minute
+name: Run main.py on external trigger
 
 on:
-  schedule:
-    - cron: "* * * * *"  # every minute
+  repository_dispatch:
+    types: [run-main]
 
 jobs:
   run-main:
